@@ -1,0 +1,38 @@
+/*
+style.css
+Copyleft (c) 2024 daysant - Jiyuuna Jisho
+This work is licensed under the terms of the AGPL v3.0-or-later.
+daysant@proton.me
+*/
+
+@font-face {
+  font-family: 'Ubuntu';
+  src: url('ubuntu.ttf');
+}
+
+:root{
+  color: white;
+  background-color: #1D2126;
+  font-size: 16px;
+  
+  font-family: "Ubuntu", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+body{
+  margin: 0;
+}
+
+header{
+  background-color: #16191D;
+  padding: 1rem;
+  text-align: center;
+  
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+main{
+  padding:1rem;
+}
