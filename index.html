@@ -1,7 +1,7 @@
 <!--
 index.html
 Copyleft (c) 2024 daysant - Jiyuuna Jisho
-This file is licensed under the terms of the AGPL v3.0-or-later
+This file is licensed under the terms of the AGPL License v3.0-or-later.
 daysant@proton.me
 -->
 
@@ -12,14 +12,37 @@ daysant@proton.me
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" type="text/css" href="style.css">
   <title>Jiyuuna Jisho</title>
-</head>
+  </head>
 <body>
-  <script src="main.js"></script>
+  <button type="button" class="hamburger" id="hamburger">≡</button>
   <header>
     Jiyuuna Jisho
   </header>
   <main>
-    <input type="text" placeholder="Look up">
+    <section id="dictionary">
+      <h2>Dictionary</h2>
+      <input type="text" id="dictionaryInput" placeholder="Enter a word">
+      <div id="dictionaryResult"></div>
+    </section>
+    <section id="kanji">
+      <h2>Kanji Lookup</h2>
+      <input type="text" id="kanjiInput" placeholder="Enter a kanji">
+      <div id="kanjiResult"></div>
+    </section>
+    <section id="conjugator">
+      <h2>Conjugator</h2>
+      <input type="text" id="conjugatorInput" placeholder="Enter a verb">
+      <div id="conjugatorResult"></div>
+    </section>
+    <section id="about">
+      <h2>About</h2>
+      <p>
+        <p>Jiyuuna Jisho<br>Free and open-source Japanese dictionary, kanji lookup, and conjugator</p>
+        <p>This program has been licensed under the terms of the AGPL v3.0-or-later.</p>
+        <p>Created by daysant<br></p>
+      </p>
+    </section>
   </main>
+  <script src="main.js"></script>
 </body>
 </html>
