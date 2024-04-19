@@ -17,11 +17,12 @@ daysant@proton.me
   
   font-family: "Ubuntu", sans-serif;
   font-weight: 400;
-  font-style: normal;
 }
 
 body{
   margin: 0;
+  display: flex;
+  flex-direction: column;
 }
 
 header{
@@ -35,4 +36,17 @@ header{
 
 main{
   padding:1rem;
+}
+
+input{
+  color: white;
+  background-color: #1D2126;
+  font-size: 16px;
+  
+  border:1px solid #FFF;
+  width:calc(100% - 1rem);
+  padding:0.5rem;
+  
+  font-family: "Ubuntu", sans-serif;
+  font-weight: 400;
 }
