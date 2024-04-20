@@ -10,6 +10,18 @@ daysant@proton.me
   src: url('ubuntu.ttf');
 }
 
+@media (min-width: calc(641px + 4.1rem)) {
+  main{
+    width:640px;
+  }
+}
+
+@media (max-width: calc(640px + 4.1rem)) {
+  main{
+    min-width: calc(100vw - 4.05rem);
+  }
+}
+
 :root{
   color: white;
   background-color: #1D2126;
@@ -22,7 +34,6 @@ daysant@proton.me
 body{
   margin: 0;
   display: grid;
-  grid-template-columns:3.75rem auto;
   grid-template-areas:
   "hamburger header"
   "main main"
@@ -31,24 +42,27 @@ body{
 
 header{
   background-color: #16191D;
-  padding: 1rem;
-  font-size: 1.5rem;
-  font-weight: 600;
-  text-align: right;
+  position:fixed;
+  font-size: 1.75rem;
   grid-area:header;
-  width:auto;
+  width:100vw;
+  height:4.1rem;
+  font-weight: bolder
 }
 
-main{
-  padding:1rem;
-  grid-area:main;
+main {
+  margin-top: 4.1rem;
+  padding: 2.05rem;
+  grid-area: main;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .hamburger{
   padding:1rem;
   grid-area:hamburger;
-  width:3.75rem;
-  height:3.75rem;
+  width:4.1rem;
+  height:4.1rem;
   background-color: #16191D;
   border:none;
   color:white;
@@ -71,4 +85,52 @@ input{
   
   font-family: "Ubuntu", sans-serif;
   font-weight: 400;
+}
+
+nav{
+  display:none;
+  position:fixed;
+  top: 4.1rem;
+  width:calc(100vw - 1rem);
+  height:calc(100 - 4.1rem);
+}
+
+.nav-button-container{
+  list-style-type: none;
+  padding-left:0;
+  margin:0;
+  background-color: #16191D;
+  width:calc(100vw - 1rem);
+  height:calc(100vh - 4.1rem);
+}
+
+.nav-button{
+  padding-left:2.05rem;
+  display:block;
+  width:4.1rem;
+  height:4.1rem;
+  background-color: #16191D;
+  border:none;
+  color:white;
+  font-size:1.5rem;
+  width: 100%;
+  text-align: left;
+}
+
+.nav-button:hover{
+  display:block;
+  width:4.1rem;
+  height:4.1rem;
+  background-color: #1D2126;
+  border:none;
+  color:white;
+  font-size:1.5rem;
+  width: 100%;
+  text-align: left;
+  padding-left: 4.1rem;
+}
+
+h2{
+  margin-top:0;
+  text-align:center;
 }

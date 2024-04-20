@@ -5,17 +5,18 @@
 
 document.addEventListener('DOMContentLoaded', function() {
   var hamburger = false;
+  menuButton("dictionary")
 });
 
 document.getElementById('hamburger').addEventListener('mouseup', function() {
   if (hamburger) {
-    console.log('hamburger open');
     hamburger = false;
     this.innerHTML = 'x';
+    document.getElementById("nav").style.display = "block";
   } else {
-    console.log('hamburger closed');
     hamburger = true;
     this.innerHTML = '≡'
+    document.getElementById("nav").style.display = "none";
   }
 });
 
@@ -65,4 +66,42 @@ function lookUpKanji(input) {
 
 function conjugate(input) {
   console.log("Conjugating",input);
+}
+
+function menuButton(menu){
+  var sections = document.getElementsByTagName('section');
+  for (var i = 0; i < sections.length; i++) {
+    sections[i].style.display = 'none';
+  }
+
+  switch (menu) {
+    case "dictionary":
+      document.getElementById("dictionary").style.display = "block";
+      
+      hamburger = true;
+      document.getElementById("hamburger").innerHTML = '≡'
+      document.getElementById("nav").style.display = "none";
+      break;
+    case "kanji":
+      document.getElementById("kanji").style.display = "block";
+
+      hamburger = true;
+      document.getElementById("hamburger").innerHTML = '≡'
+      document.getElementById("nav").style.display = "none";
+      break;
+    case "conjugator":
+      document.getElementById("conjugator").style.display = "block";
+
+      hamburger = true;
+      document.getElementById("hamburger").innerHTML = '≡'
+      document.getElementById("nav").style.display = "none";
+      break;
+    case "about":
+      document.getElementById("about").style.display = "block";
+
+      hamburger = true;
+      document.getElementById("hamburger").innerHTML = '≡'
+      document.getElementById("nav").style.display = "none";
+      break;
+  }
 }

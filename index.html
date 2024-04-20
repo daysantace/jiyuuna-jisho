@@ -14,26 +14,38 @@ daysant@proton.me
   <title>Jiyuuna Jisho</title>
   </head>
 <body>
-  <button type="button" class="hamburger" id="hamburger">≡</button>
   <header>
-    Jiyuuna Jisho
+    <button type="button" class="hamburger" id="hamburger">≡</button>
+    <div style="position:fixed; text-align: right; top:1rem; right:2.05rem;">Jiyuuna Jisho</div>
   </header>
+  <nav id="nav" class="nav">
+    <ul class="nav-button-container">
+      <li><button class="nav-button" onclick="menuButton('dictionary')">Dictionary</button></li>
+      <li><button class="nav-button" onclick="menuButton('kanji')">Kanji Lookup</button></li>
+      <li><button class="nav-button" onclick="menuButton('conjugator')">Conjugator</button></li>
+      <li><button class="nav-button" onclick="menuButton('about')">About</button></li>
+    </ul>
+  </nav>
+  <div class="gap"></div>
   <main>
     <section id="dictionary">
       <h2>Dictionary</h2>
       <input type="text" id="dictionaryInput" placeholder="Enter a word">
       <div id="dictionaryResult"></div>
     </section>
+
     <section id="kanji">
       <h2>Kanji Lookup</h2>
       <input type="text" id="kanjiInput" placeholder="Enter a kanji">
       <div id="kanjiResult"></div>
     </section>
+
     <section id="conjugator">
       <h2>Conjugator</h2>
-      <input type="text" id="conjugatorInput" placeholder="Enter a verb">
+      <input type="text" id="conjugatorInput" placeholder="Enter a word">
       <div id="conjugatorResult"></div>
     </section>
+
     <section id="about">
       <h2>About</h2>
       <p>
@@ -43,6 +55,7 @@ daysant@proton.me
       </p>
     </section>
   </main>
+  <div class="gap"></div>
   <script src="main.js"></script>
 </body>
 </html>
