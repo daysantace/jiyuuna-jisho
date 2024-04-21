@@ -26,9 +26,7 @@ daysant@proton.me
   color: white;
   background-color: #1D2126;
   font-size: 16px;
-  
   font-family: "Ubuntu", sans-serif;
-  font-weight: 400;
 }
 
 body{
@@ -72,6 +70,12 @@ main {
 }
 
 footer{
+  font-size:0.707rem;
+  position:fixed;
+  bottom:0;
+  padding:2.1em;
+  background-color:#16191D;
+  width:100vw;
 }
 
 input{
@@ -84,7 +88,6 @@ input{
   padding:0.5rem;
   
   font-family: "Ubuntu", sans-serif;
-  font-weight: 400;
 }
 
 nav{
@@ -93,6 +96,7 @@ nav{
   top: 4.1rem;
   width:calc(100vw - 1rem);
   height:calc(100 - 4.1rem);
+  transition:left 0.15ms ease;
 }
 
 .nav-button-container{
@@ -102,35 +106,56 @@ nav{
   background-color: #16191D;
   width:calc(100vw - 1rem);
   height:calc(100vh - 4.1rem);
+  width:100vw;
 }
 
-.nav-button{
-  padding-left:2.05rem;
-  display:block;
-  width:4.1rem;
-  height:4.1rem;
+.nav-button {
+  padding-left: 2.05rem;
+  display: block;
+  width: 4.1rem;
+  height: 4.1rem;
   background-color: #16191D;
-  border:none;
-  color:white;
-  font-size:1.5rem;
+  border: none;
+  color: white;
+  font-size: 1.5rem;
   width: 100%;
   text-align: left;
+  font-family: "Ubuntu", sans-serif;
+  transition: background-color 0.15s ease,
 }
 
-.nav-button:hover{
-  display:block;
-  width:4.1rem;
-  height:4.1rem;
-  background-color: #1D2126;
-  border:none;
-  color:white;
-  font-size:1.5rem;
+.nav-button {
+  padding-left: 2.05rem;
+  display: block;
+  width: 4.1rem;
+  height: 4.1rem;
+  background-color: #16191D;
+  border: none;
+  color: white;
+  font-size: 1.5rem;
   width: 100%;
   text-align: left;
+  font-family: "Ubuntu", sans-serif;
+  transition: background-color 0.15s ease,
+padding-left 0.15s ease;
+}
+
+.nav-button:hover {
+  background-color: #1D2126;
   padding-left: 4.1rem;
 }
+
 
 h2{
   margin-top:0;
   text-align:center;
+}
+
+a{
+  text-decoration:none;
+  color:cornflowerblue;
+}
+
+a:hover{
+  text-decoration:underline;
 }

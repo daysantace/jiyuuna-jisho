@@ -5,68 +5,27 @@
 
 document.addEventListener('DOMContentLoaded', function() {
   var hamburger = false;
-  menuButton("dictionary")
-});
+  menuButton("dictionary");
 
-document.getElementById('hamburger').addEventListener('mouseup', function() {
-  if (hamburger) {
-    hamburger = false;
-    this.innerHTML = 'x';
-    document.getElementById("nav").style.display = "block";
-  } else {
-    hamburger = true;
-    this.innerHTML = '≡'
-    document.getElementById("nav").style.display = "none";
+  document.getElementById('hamburger').addEventListener('mouseup', function() {
+    hamburger = !hamburger;
+    this.innerHTML = hamburger ? '≡' : 'x';
+    document.getElementById("nav").style.display = hamburger ? "none" : "block";
+  });
+
+  function handleInputEvent(inputId, action) {
+    document.getElementById(inputId).addEventListener('keypress', function(event) {
+      if (event.key === 'Enter' || event.type === 'blur') {
+        const input = document.getElementById(inputId).value;
+        action(input);
+      }
+    });
   }
+
+  handleInputEvent('dictionaryInput', lookUp);
+  handleInputEvent('kanjiInput', lookUpKanji);
+  handleInputEvent('conjugatorInput', conjugate);
 });
-
-document.getElementById('dictionaryInput').addEventListener('keypress', function(event) {
-  if (event.key === 'Enter') {
-    const input = document.getElementById('dictionaryInput').value;
-    lookUp(input);
-  }
-});
-
-document.getElementById('dictionaryInput').addEventListener('blur', function() {
-  const input = document.getElementById('dictionaryInput').value;
-  lookUp(input);
-});
-
-document.getElementById('kanjiInput').addEventListener('keypress', function(event) {
-  if (event.key === 'Enter') {
-    const input = document.getElementById('kanjiInput').value;
-    lookUpKanji(input);
-  }
-});
-
-document.getElementById('kanjiInput').addEventListener('blur', function() {
-  const input = document.getElementById('kanjiInput').value;
-  lookUpKanji(input);
-});
-
-document.getElementById('conjugatorInput').addEventListener('keypress', function(event) {
-  if (event.key === 'Enter') {
-    const input = document.getElementById('conjugatorInput').value;
-    conjugate(input);
-  }
-});
-
-document.getElementById('conjugatorInput').addEventListener('blur', function() {
-  const input = document.getElementById('conjugatorInput').value;
-  conjugate(input);
-});
-
-function lookUp(input) {
-  console.log("Looking up",input);
-}
-
-function lookUpKanji(input) {
-  console.log("Looking up kanji",input);
-}
-
-function conjugate(input) {
-  console.log("Conjugating",input);
-}
 
 function menuButton(menu){
   var sections = document.getElementsByTagName('section');
@@ -74,34 +33,10 @@ function menuButton(menu){
     sections[i].style.display = 'none';
   }
 
-  switch (menu) {
-    case "dictionary":
-      document.getElementById("dictionary").style.display = "block";
-      
-      hamburger = true;
-      document.getElementById("hamburger").innerHTML = '≡'
-      document.getElementById("nav").style.display = "none";
-      break;
-    case "kanji":
-      document.getElementById("kanji").style.display = "block";
-
-      hamburger = true;
-      document.getElementById("hamburger").innerHTML = '≡'
-      document.getElementById("nav").style.display = "none";
-      break;
-    case "conjugator":
-      document.getElementById("conjugator").style.display = "block";
-
-      hamburger = true;
-      document.getElementById("hamburger").innerHTML = '≡'
-      document.getElementById("nav").style.display = "none";
-      break;
-    case "about":
-      document.getElementById("about").style.display = "block";
-
-      hamburger = true;
-      document.getElementById("hamburger").innerHTML = '≡'
-      document.getElementById("nav").style.display = "none";
-      break;
+  var element = document.getElementById(menu);
+  if (element) {
+    element.style.display = "block";
+    document.getElementById("hamburger").innerHTML = '≡';
+    document.getElementById("nav").style.display = "none";
   }
 }
