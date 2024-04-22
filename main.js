@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 
   handleInputEvent('dictionaryInput', lookUp);
-  handleInputEvent('kanjiInput', lookUpKanji);
+  handleInputEvent('kanjiInput', kanjiLookUp);
   handleInputEvent('conjugatorInput', conjugate);
 });
 
@@ -39,4 +39,15 @@ function menuButton(menu){
     document.getElementById("hamburger").innerHTML = '≡';
     document.getElementById("nav").style.display = "none";
   }
+}
+
+function lookUp(){
+  fetch('result.html')
+  .then(response => response.text())
+  .then(fileContent => {
+    const parser = new DOMParser();
+    const result = parser.parseFromString(fileContent, 'text/html');
+    const entry = result.querySelector('#dictionary').innerHTML;
+    document.querySelector('#dictionaryResult').innerHTML = entry;
+  })
 }
