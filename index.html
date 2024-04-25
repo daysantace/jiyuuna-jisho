@@ -18,44 +18,17 @@ daysant@proton.me
     <button type="button" class="hamburger" id="hamburger">≡</button>
     <div style="position:fixed; text-align: right; top:1rem; right:2.05rem;">Jiyuuna Jisho</div>
   </header>
-  <nav id="nav" class="nav">
+    <nav id="nav" class="nav">
     <ul class="nav-button-container">
       <li><button class="nav-button" onclick="menuButton('dictionary')">Dictionary</button></li>
       <li><button class="nav-button" onclick="menuButton('kanji')">Kanji Lookup</button></li>
       <li><button class="nav-button" onclick="menuButton('conjugator')">Conjugator</button></li>
       <li><button class="nav-button" onclick="menuButton('about')">About</button></li>
+      <li><button class="nav-button" onclick="menuButton('settings')">Settings</button></li>
     </ul>
   </nav>
   <main>
-    <section id="dictionary">
-      <h2>Dictionary</h2>
-      <input type="text" id="dictionaryInput" placeholder="Enter a word">
-      <div id="dictionaryResult" class="result">The dictionary has not been implemented yet.</div>
-    </section>
-
-    <section id="kanji">
-      <h2>Kanji Lookup</h2>
-      <input type="text" id="kanjiInput" placeholder="Enter a kanji">
-      <div id="kanjiResult" class="result">The kanji lookup has not been implemented yet.</div>
-    </section>
-
-    <section id="conjugator">
-      <h2>Conjugator</h2>
-      <input type="text" id="conjugatorInput" placeholder="Enter a word">
-      <div id="conjugatorResult" class="result">The conjugator has not been implemented yet.</div>
-    </section>
-
-    <section id="about">
-      <h2>About</h2>
-      <p>
-        <p>Jiyuuna Jisho<br>Free and open-source Japanese dictionary, kanji lookup, and conjugator</p>
-        <p>This program has been licensed under the terms of the AGPL v3.0-or-later.
-          <br><a href="https://github.com/daysantace/jiyuuna-jisho">Source code</a>
-        </p>
-        <p>Created by daysant<br>
-        Dictionary data provided by JMDict</p>
-      </p>
-    </section>
+  Loading...
   </main>
   <footer>
     Jiyuuna Jisho<br>
@@ -63,5 +36,6 @@ daysant@proton.me
     See About for more information
   </footer>
   <script src="main.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fast-xml-parser/4.3.6/fxparser.min.js" integrity="sha512-EYspdactTxZaNYtM83SIGiBKKHK9j+Q8RSh4Ckl912AEDAv7TJe4HfhlwusZHuOiWnVT8Uw3qn5UNf/00apUeQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </body>
 </html>
