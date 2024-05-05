@@ -23,12 +23,58 @@ daysant@proton.me
       <li><button class="nav-button" onclick="menuButton('dictionary')">Dictionary</button></li>
       <li><button class="nav-button" onclick="menuButton('kanji')">Kanji Lookup</button></li>
       <li><button class="nav-button" onclick="menuButton('conjugator')">Conjugator</button></li>
+      <li><button class="nav-button" onclick="menuButton('transcription')">Transcription </button></li>
       <li><button class="nav-button" onclick="menuButton('about')">About</button></li>
       <li><button class="nav-button" onclick="menuButton('settings')">Settings</button></li>
     </ul>
   </nav>
   <main>
-  Loading...
+      <section id="dictionary">
+      <h2>Dictionary</h2>
+      <input type="text" id="dictionaryInput" placeholder="Enter a word">
+      <div id="dictionaryResult" class="result">The dictionary has not been implemented yet.</div>
+    </section>
+
+    <section id="kanji" style="display:none;">
+      <h2>Kanji Lookup</h2>
+      <input type="text" id="kanjiInput" placeholder="Enter a kanji">
+      <div id="kanjiResult" class="result">The kanji lookup has not been implemented yet.</div>
+    </section>
+
+    <section id="conjugator" style="display:none;">
+      <h2>Conjugator</h2>
+      <input type="text" id="conjugatorInput" placeholder="Enter a word">
+      <div id="conjugatorResult" class="result">The conjugator has not been implemented yet.</div>
+    </section>
+
+    <section id="about" style="display:none;">
+      <h2>About</h2>
+      <p>
+        <p>Jiyuuna Jisho<br>Free and open-source Japanese utility</p>
+        <p>This program has been licensed under the terms of the AGPL v3.0-or-later.
+          <br><a href="https://github.com/daysantace/jiyuuna-jisho">Source code</a>
+        </p>
+        <p>Created by daysant</p>
+        <p>The following resources have been used:
+        <ul>
+          <li>JMDict (dictionary info)</li>
+        </ul>
+        </p>
+      </p>
+    </section>
+    
+    <section id="settings" style="display:none;">
+      <h2>Settings</h2>
+      <p>Settings have not been implemented yet.</p>
+    </section>
+    
+    <section id="transcription" style="display:none;">
+      <h2>Transcription</h2>
+      <p>Hiragana<br><input type="text" id="convertHiragana" placeholder="ひらがな…"></p>
+      <p>Hepburn<br><input type="text" id="convertHepburn" placeholder="Hebonshiki rōmaji..."></p>
+      <p>Kunrei-shiki<br><input type="text" id="convertKunrei" placeholder="Kunreisiki rômazi..."></p>
+      <p>IPA<div id="convertIpa"></div></p>
+    </section>
   </main>
   <footer>
     Jiyuuna Jisho<br>
@@ -36,6 +82,5 @@ daysant@proton.me
     See About for more information
   </footer>
   <script src="main.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/fast-xml-parser/4.3.6/fxparser.min.js" integrity="sha512-EYspdactTxZaNYtM83SIGiBKKHK9j+Q8RSh4Ckl912AEDAv7TJe4HfhlwusZHuOiWnVT8Uw3qn5UNf/00apUeQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </body>
 </html>

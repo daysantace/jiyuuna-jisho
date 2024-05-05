@@ -3,19 +3,13 @@
 // This file is licensed under the terms of the AGPL v3.0-or-later.
 // daysant@proton.me
 
-var resource
+let api = {
+  'jisho': 'https://jisho.org/api/v1/search/words?keyword='
+}
+
+var resource;
 
 document.addEventListener('DOMContentLoaded', function() {
-  
-  fetch('resources.html')
-  .then(response => response.text())
-  .then(fileContent => {
-    const PARSER = new DOMParser();
-    resource = PARSER.parseFromString(fileContent,'text/html');
-    document.querySelector('main').innerHTML = resource.getElementById('main').innerHTML
-  })
-  
-  document.querySelector('main')
   
   var hamburger = false;
 
@@ -29,16 +23,36 @@ document.addEventListener('DOMContentLoaded', function() {
     document.getElementById(inputId).addEventListener('keypress', function(event) {
       if (event.key === 'Enter' || event.type === 'blur') {
         const INPUT = document.getElementById(inputId).value;
-        action(INPUT);
+        action(INPUT)
       }
     });
   }
 
-  handleInputEvent('dictionaryInput', lookUp("Test"));
-  handleInputEvent('kanjiInput', kanjiLookUp);
-  handleInputEvent('conjugatorInput', conjugate);
+  handleInputEvent('dictionaryInput', lookUp);
+});
 
-  function menuButton(menu){
+async function lookUp(input){
+  document.getElementById('dictionaryResult').innerHTML = `Looking up ${input}...`;
+  
+  var data = await getApiData(api.jisho,input);
+  
+  if (data==-1){
+    return
+  };
+  
+  fetch('res/resources.html')
+  .then(response => response.text())
+  .then(fileContent => {
+    const parser = new DOMParser();
+    resource = parser.parseFromString(fileContent,'text/html');
+    resource.getElementById('dictionaryTitle').innerHTML = input
+    resource.getElementById('dictionaryResult').innerHTML = data
+    const entry = resource.getElementById('dictionary').innerHTML;
+    document.getElementById('dictionaryResult').innerHTML = entry;
+  })
+  }
+
+function menuButton(menu){
     var sections = document.getElementsByTagName('section');
     for (var i = 0; i < sections.length; i++) {
       sections[i].style.display = 'none';
@@ -52,13 +66,13 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 }
 
-  function lookUp(input){
-      const ENTRY = resource.getElementById('dictionaryEntry').innerHTML;
-      document.getElementById('dictionaryResult').innerHTML = ENTRY;
+async function getApiData(api,input){
+  try {
+    const response = await fetch((api)+input);
+    const data = await response.json();
+    return JSON.stringify(data);
+  } catch(error) {
+    console.error(`Error getting API data: ${error}`)
+    return -1;
   }
-  
-  function xmlParse(){
-    const parser = new DOMParser();
-  }
-
-});
+}
